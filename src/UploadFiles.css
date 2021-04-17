@@ -1,0 +1,33 @@
+
+  div.upload input[type="file"] {
+    display: input-block;
+    width: 100%;
+    height: 30px;
+    opacity: 0;
+    cursor:pointer;
+    position:absolute;
+    left:0;
+}
+.uploadButton {
+    background-color: #425F9C;
+    border: none;
+    border-radius: 3px;
+    color: #FFF;
+    margin-left: 90px;
+    cursor:pointer;
+    display: inline-block;
+    height: 20px;
+    margin-right:15px;
+    width: 5px;
+    padding:0 ;
+    box-sizing: content-box;
+}
+
+.fileName {
+    font-family: Arial;
+    font-size:14px;
+}
+
+.upload + .uploadButton {
+    height:38px;
+}
