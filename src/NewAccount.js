@@ -346,7 +346,7 @@ export default withRouter(connect(mapStateToProps)(function NewAccount(props) {
     Email: "",
     Password: ""
   });
-  const [password, setPassword] = useState("");
+  const [password_, setPassword_] = useState("");
   //שנוי השדות, במקרה של שדות אינפוט
   function handleTyping(event, prop) {
     var cloneUsr = { ...usr };
