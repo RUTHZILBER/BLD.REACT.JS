@@ -2,6 +2,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import Store from './Store';
+
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -24,7 +26,7 @@ function App() {
   const theme = createMuiTheme({
     direction: 'rtl',
   });
-  
+
 
   const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 
@@ -38,8 +40,9 @@ function App() {
 
   return (
     <Provider store={Store}>
-      <div className="App" >
-        {/* <ThemeProvider theme={theme}> */}
+     
+      <div className="App" style={{ fontFamily: "arial" }}>
+          {/* <ThemeProvider theme={theme}> */}
 
           <Router>
 
@@ -76,8 +79,9 @@ function App() {
             </Switch>
           </Router>
 
-        {/* </ThemeProvider> */}
-      </div>
+          {/* </ThemeProvider> */}
+        </div>
+     
     </Provider >
   );
 }

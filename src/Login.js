@@ -21,6 +21,8 @@ import { Redirect, Link } from "react-router-dom";
 import bld from './bld2.jpg';
 
 
+
+
 function mapStateToProps(state) {
   return {
     userId: state.UserId,
@@ -230,9 +232,8 @@ export default withRouter(connect(mapStateToProps)(function SignInSide(props) {
   const [errorMessage, setErrorMessage] = useState("שגיאה");
   const [errorPlay, setErrorPlay] = useState("none");
   return (
-    <Grid style={{min: 0, style: { textAlign: 'right' }}} container component="main" className={classes.root}>
-
-
+    
+    <Grid className="f" style={{min: 0, style: { textAlign: 'right' }}} container component="main" className={classes.root}>
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
@@ -244,9 +245,9 @@ export default withRouter(connect(mapStateToProps)(function SignInSide(props) {
             LOGIN
           </Typography>
 
-          <form style={{textAlign: 'right'}} className={classes.form} noValidate>
-            <div><ErrorMessage message={errorMsg}/></div>
-            <TextField  value={usr.Email} onChange={(e) => { handleTyping(e, "Email") }}
+          <form  style={{textAlign: 'right'}} className={classes.form} className="f" noValidate>
+            <div  className="f"><ErrorMessage message={errorMsg}/></div>
+            <TextField   className="f" value={usr.Email} onChange={(e) => { handleTyping(e, "Email") }}
               variant="outlined"
               margin="normal"
               required
