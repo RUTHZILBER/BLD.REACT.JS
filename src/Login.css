@@ -1,7 +1,16 @@
+@import url(https://dl.dropboxusercontent.com/u/15746367/fonts/carmela/style.css);
+@import url(https://fonts.googleapis.com/earlyaccess/alefhebrew.css);
+@import url(https://fonts.googleapis.com/earlyaccess/opensanshebrewcondensed.css);
 
+body {
+  direction: rtl;
+  font-family: "Alef Hebrew", sans-serif;
+  margin: 20px 25% 20px 0;
+  width: 50%;
+}
 .f
-{ font-family: 'Open Sans Hebrew Condensed', serif;
- font-family: "Alef Hebrew", sans-serif; 
+{ 
+ 
   font-family: "Carmela", sans-serif;
 }
 /* 

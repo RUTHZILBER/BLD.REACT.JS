@@ -39,7 +39,7 @@ function mapStateToProps(state) {
 function Copyright() {
 
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography className="f" variant="body2" color="textSecondary" align="center">
       תודה לבורא עולם
     </Typography>
   );
