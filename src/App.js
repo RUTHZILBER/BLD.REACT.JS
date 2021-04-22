@@ -39,9 +39,9 @@ function App() {
   }
 
   return (
-    <Provider store={Store}>
+    <Provider className="niceFont" store={Store}>
      
-      <div className="App" style={{ fontFamily: "arial" }}>
+      <div className="App" className="niceFont" style={{ fontFamily: "arial" }}>
           {/* <ThemeProvider theme={theme}> */}
 
           <Router>

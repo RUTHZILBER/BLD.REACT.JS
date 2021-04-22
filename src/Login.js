@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './Login.css';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -39,7 +40,7 @@ function mapStateToProps(state) {
 function Copyright() {
 
   return (
-    <Typography className="f" variant="body2" color="textSecondary" align="center">
+    <Typography className="niceFont" variant="body2" color="textSecondary" align="center">
       תודה לבורא עולם
     </Typography>
   );
@@ -233,21 +234,21 @@ export default withRouter(connect(mapStateToProps)(function SignInSide(props) {
   const [errorPlay, setErrorPlay] = useState("none");
   return (
     
-    <Grid className="f" style={{min: 0, style: { textAlign: 'right' }}} container component="main" className={classes.root}>
+    <Grid className="niceFont" style={{min: 0, style: { textAlign: 'right' }}} container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
+      <Grid className="niceFont" item xs={false} sm={4} md={7} className={classes.image} />
+      <Grid className="niceFont" item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <div className="niceFont" className={classes.paper}>
           {/* <Avatar className={classes.avatar}>
              <LockOutlinedIcon /> 
           </Avatar> */}
-          <Typography component="h1" variant="h5">
+          <Typography className="niceFont" component="h1" variant="h5">
             LOGIN
           </Typography>
 
-          <form  style={{textAlign: 'right'}} className={classes.form} className="f" noValidate>
-            <div  className="f"><ErrorMessage message={errorMsg}/></div>
-            <TextField   className="f" value={usr.Email} onChange={(e) => { handleTyping(e, "Email") }}
+          <form  style={{textAlign: 'right'}} className={classes.form} className="niceFont" noValidate>
+            <div className="niceFont" className="f"><ErrorMessage message={errorMsg}/></div>
+            <TextField  className="niceFont" className="f" value={usr.Email} onChange={(e) => { handleTyping(e, "Email") }}
               variant="outlined"
               margin="normal"
               required
@@ -269,12 +270,12 @@ export default withRouter(connect(mapStateToProps)(function SignInSide(props) {
                 },
               }}
             />
-          <Collapse style={{min: 0, style: { textAlign: 'right' }}} in={false}>
-              <Alert dir="rtl" style={{display: errorPlay }}  severity="error" >
+          <Collapse className="niceFont" style={{min: 0, style: { textAlign: 'right' }}} in={false}>
+              <Alert className="niceFont" dir="rtl" style={{display: errorPlay }}  severity="error" >
                 {errorMessage}
               </Alert>
             </Collapse>
-            <TextField onChange={(e) => { handleTyping(e, "Password") }} value={usr.Password}
+            <TextField className="niceFont" onChange={(e) => { handleTyping(e, "Password") }} value={usr.Password}
               inputProps={{
                 maxLength: 9,
               }}
@@ -300,11 +301,11 @@ export default withRouter(connect(mapStateToProps)(function SignInSide(props) {
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
+            <FormControlLabel className="niceFont"
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <Button
+            <Button className="niceFont"
               onClick={login}
               fullWidth
               type="button"
@@ -314,12 +315,12 @@ export default withRouter(connect(mapStateToProps)(function SignInSide(props) {
             >
               הכנס
             </Button>
-            <Grid container>
+            <Grid className="niceFont" container>
               <Grid item xs>
 
               </Grid>
 
-              <Link to="/NewAccount" variant="body2">
+              <Link className="niceFont" to="/NewAccount" variant="body2">
 
                 !עוד אינך רשום? הצטרף כאן
                 </Link>

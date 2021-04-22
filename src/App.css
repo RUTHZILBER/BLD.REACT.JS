@@ -27,12 +27,17 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-family: "Alef Hebrew", sans-serif;
 }
 
 .App-link {
   color: #61dafb;
+  font-family: "Alef Hebrew", sans-serif;
 }
+.niceFont {
+  font-family: "Alef Hebrew", sans-serif;
 
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
