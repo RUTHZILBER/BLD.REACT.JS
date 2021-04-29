@@ -1,18 +1,11 @@
 //אני הדף המכיל את כל הקומפוננטות ששיכות לדף הראשי, ואב להן. בבסיסי יש את:  הבר השמאלי+השורה הראשונה
 import React, { useState } from 'react';
-//import * as React from 'react';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
-//import * as React from 'react';
-//import { makeStyles } from '@material-ui/core/styles';
-//import Alert from '@material-ui/lab/Alert';
-//import ImageList from '@material-ui/core/ImageList';
-//import GridList from '@material-ui/core/GridList';
-//import GridListTile from '@material-ui/core/GridListTile';
-//import tileData from './tileData';
 import PublicIcon from '@material-ui/icons/Public';
 import FingerprintIcon from '@material-ui/icons/Fingerprint';
 import AppsIcon from '@material-ui/icons/Apps';
+import './ResponsiveDrawer.css';
 import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -51,7 +44,7 @@ import bld8 from './bld8.JPG';
 import bld9 from './bld9.png';
 import bld10 from './bld10.PNG';
 import bld11 from './bld11.png';
-
+import './ResponsiveDrawer.css';
 
 const useStylesAboutUs = makeStyles({
   root: {
@@ -365,12 +358,12 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
       <SearchTextBox dis={dis} setDis={setDis} text={text} setText={setText} errorPlay={errorPlay} setErrorPlay={setErrorPlay} severity={severity} setSeverity={setSeverity}
         alertContent={alertContent} setAlertContent={setAlertContent}></SearchTextBox>
       {/* חיפוש משופר */}
-      <List >
+      <List className="niceFont" >
 
         <ListItem onClick={updateYourAccount} button key="update">
           <ListItemIcon ><FingerprintIcon />
           </ListItemIcon>
-          <ListItemText primary="עדכון הפרטים האישיים שלי" />
+          <ListItemText className="niceFont"  primary="עדכון הפרטים האישיים שלי" />
         </ListItem>
 
         <ListItem onClick={handleClickOpenDI} title="aa" button key="instructons">

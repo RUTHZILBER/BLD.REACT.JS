@@ -19,6 +19,7 @@ import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import EventBusyIcon from '@material-ui/icons/EventBusy';
+import './Table_Row.css';
 
 const useRowStyles = makeStyles({
     root: {
@@ -252,19 +253,19 @@ export default connect(mapStateToProps)(function Table_Row(props) {
                 </TableCell>
                 {/* מלוי הטבלה, כל עמודה */}
 
-                <TableCell align="right">{row.neatTags.length}</TableCell>
-                <TableCell align="right" style={{ fontFamily: 'M PLUS 1p , sans-serif' }} >{row.tag3}</TableCell>
-                <TableCell align="right">{row.tag2}</TableCell>
+                <TableCell className="niceFont" align="right">{row.neatTags.length}</TableCell>
+                <TableCell className="niceFont"  align="right" style={{ fontFamily: 'M PLUS 1p , sans-serif' }} >{row.tag3}</TableCell>
+                <TableCell className="niceFont"  align="right">{row.tag2}</TableCell>
 
-                <TableCell align="right">{row.tag1}</TableCell>
+                <TableCell className="niceFont"  align="right">{row.tag1}</TableCell>
 
-                <TableCell align="right">{row.isPermit == true ?<AssignmentTurnedInIcon/> :<EventBusyIcon/>}</TableCell>
+                <TableCell className="niceFont"  align="right">{row.isPermit == true ?<AssignmentTurnedInIcon/> :<EventBusyIcon/>}</TableCell>
 
-                <TableCell align="right">{row.userName}</TableCell>
-                <TableCell component="th" scope="row">{row.songName}</TableCell>
+                <TableCell className="niceFont"  align="right">{row.userName}</TableCell>
+                <TableCell className="niceFont"  component="th" scope="row">{row.songName}</TableCell>
 
 
-                <TableCell style={{ display: "none" }} align="right">{row.songId}</TableCell>
+                <TableCell className="niceFont"  style={{ display: "none" }} align="right">{row.songId}</TableCell>
 
                 {/*style={{ font-family='Varela Round', sans-serif}}לתוך שורות הטבלה לפי עמודות DB השמת הערכים הדינאמיים מתוך ה*/}
 
