@@ -10,7 +10,7 @@ import magnifyingGlass from '@iconify-icons/oi/magnifying-glass';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import SystemUpdateAltIcon from '@material-ui/icons/SystemUpdateAlt';
 import { connect } from 'react-redux';
-
+import './CheckboxesTags.css';
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
@@ -164,9 +164,9 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
         debugger;
         var v = e.currentTarget.firstElementChild.innerText;
         v = v.substring(0, v.length);//?
-        var to = v.indexOf(". .מהשיר. .");
+        var to = v.indexOf("   מהשיר   ");
         var to2 = v.length;
-        var from2 = v.lastIndexOf(". .מהשיר. .") + 11;
+        var from2 = v.lastIndexOf("   מהשיר   ") + 11;
         var tagush = v.substring(0, to);
 
         var songush = v.substring(from2, to2);
@@ -222,9 +222,9 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
 
             {/* השלמה אוטומאית לתגיות + קומבובוקס */}
             <Autocomplete
-                style={{ color: "white", display: "flex", justifyContent: "space-around", flexDirection: "row-reverse", flexWrap: "wrap" }}
+                style={{ color: "white", display: "flex", justifyContent: "space-between" }}
                 multiple
-               
+               className="a23"
                 // אך לא עובדת בעת הקלדת אנטר במקלדת 🎃 DB פונקציה הרצה רק בזמן לחיצת עכבר על התגית, ומעלה את ערכי הנקודות ב
                 onChange={(e) => {
                     debugger;
@@ -271,7 +271,7 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
                             style={{ marginRight: 20 }}
                             checked={selected}
                         />
-                        {option.tagName + ". .מהשיר. ." + option.songName}
+                        {option.tagName + "   מהשיר   " + option.songName}
                     </div>)
                 }
                 style={{ width: 1200 }}
@@ -281,7 +281,7 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
 
                     <div>
                         {/* תגית זכוכית המגדלת */}
-                        <Icon style={{ width: "250px" }} width="40px" icon={magnifyingGlass} />
+                        <Icon style={{ width: "250px" }} style={{backgroundColor:"transparent"}} width="40px" icon={magnifyingGlass} />
                         <TextField {...params} variant="outlined"
                             label="" placeholder="הקלד מילה כדי לאתר את התגית" />
 
@@ -290,7 +290,7 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
                 )}
             />
             {/* תגית ההורדה */}
-            <IconButton onClick={downloadAllSongs} style={{ color: "white", width: "110px" }} width="70px"  > <SystemUpdateAltIcon style={{ color: "white", width: "110px" }} width="70px" ></SystemUpdateAltIcon></IconButton>
+            <IconButton onClick={downloadAllSongs} className="ib"  width="70px"  > <SystemUpdateAltIcon style={{ color: "white", width: "110px" }} width="70px" ></SystemUpdateAltIcon></IconButton>
 
         </div>
     );

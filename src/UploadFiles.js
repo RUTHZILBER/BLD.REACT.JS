@@ -39,7 +39,7 @@ export default withRouter(connect(mapStateToProps)(function UploadFiles(props) {
   }));
 
   const classes = useStyles();
-
+  const [isDisable,setIsDisable]=useState(false);
   const [songsArray, setSongsArray] = useState([
     {
       SongId: "",
@@ -96,7 +96,6 @@ export default withRouter(connect(mapStateToProps)(function UploadFiles(props) {
     setOpen(false);
   };
 
-  //const history = useHistory();
   function insertSelectedSongsAndInvestigration(status) {
 
     handleToggle1();
@@ -105,17 +104,21 @@ export default withRouter(connect(mapStateToProps)(function UploadFiles(props) {
     const files = files1;
     var numberOfFiles = files.length;
     var p = 0;
+    setIsDisable(true, () => {
+      this.props.callback(this.isDisable)
+  }); 
     Object.keys(files).forEach(i => {
       const file = files[i];
       const reader = new FileReader();
       reader.onload = (event1) => {
-
+      
+    //  alert(isDisable);
         updateSongArray(event1);
         var obj = {};
         obj["SongContect"] = event1.target.result;
         obj["UserId"] = window.Store.getState().UserId;
         obj["IsPermit"] = status;
-
+       
         listOfSongConcat.push(obj);
         if (listOfSongConcat.length == numberOfFiles)//הכנסת השירים למסד הנתונים
         {
@@ -194,15 +197,21 @@ debugger;
         }
       }
       reader.readAsText(file);
+      
     });
 
     setIndex("-300");
     debugger;
-    //appHistory.go(0);//is is refresh this page?, maybe: 0
-
-
+   
+    setIsDisable(false, () => {
+      this.props.callback(this.isDisable)
+  }); 
+  //  alert(isDisable);
   }
 
+  function callSetIsDisable(){
+    setIsDisable(false);
+  }
   const [index, setIndex] = useState("20");
 
   function showError() {
@@ -245,7 +254,7 @@ debugger;
           <Button onClick={() => {
 
             handleClose();
-
+            
             insertSelectedSongsAndInvestigration(false);
 
           }} color="primary">
@@ -253,6 +262,7 @@ debugger;
           </Button>
           <Button onClick={() => {
             handleClose();
+            
             insertSelectedSongsAndInvestigration(true);
 
           }} color="primary">
@@ -262,12 +272,12 @@ debugger;
       </Dialog>
 
 
-      <input type="button" style={{backgroundColor:"white"}} className="uploadButton" width="20px " value="" />
+      <input type="button" style={{backgroundColor:"transparent"}}  className="uploadButton" width="0px " value="" />
       <input onChange={(e) => {
         handleClickOpen(e);
 
 
-      }} type="file" multiple name="upload" accept=".txt" id="fileUpload" />
+      }} type="file"  disabled={isDisable} multiple name="upload" accept=".txt" id="fileUpload" />
 
     </div>
 

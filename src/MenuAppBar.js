@@ -116,7 +116,7 @@ export default withRouter(connect(mapStateToProps)(function MenuAppBar(props) {
   };
 
   return (
-    <div >
+    <div style={{display:"flex",justifyContent:"flex-end"}}>
 
       {/* המתג עם האוסף הפרטי או כל השירים */}
       <div className={classes.root} style={{marginTop:"100px",marginBottom:"0px"}}>
@@ -128,16 +128,16 @@ export default withRouter(connect(mapStateToProps)(function MenuAppBar(props) {
       </FormGroup>
 
    {/* כפתור הפלוס */}
-        <Fab className="uploadButton" style={{ position: "relative", marginLeft: "8px", marginTop: "30px", top: "40px" }} aria-label="add"> <AddIcon/></Fab>
-     <UploadFiles style={{ position: "relative", marginLeft: "80px", marginTop: "300px",marginRight:"80px",top: "100px" }} severity={severity}setSeverity={setSeverity} alertContent={alertContent}setAlertContent={setAlertContent} errorPlay={errorPlay} setErrorPlay={setErrorPlay}></UploadFiles>
-        <AppBar position="static">
+        <Fab style={{zIndex:"-1", position: "relative", marginLeft: "80px", marginTop: "30px", top: "40px" }} className="uploadButton"  aria-label="add"> <AddIcon/></Fab>
+     <UploadFiles style={{zIndex:"1", position: "relative", marginLeft: "800px", marginTop: "300px",marginRight:"80px",top: "100px" }}style={{alignSelf:"flex-end"}}  severity={severity}setSeverity={setSeverity} alertContent={alertContent}setAlertContent={setAlertContent} errorPlay={errorPlay} setErrorPlay={setErrorPlay}></UploadFiles>
+        <AppBar position="sticky" style={{zIndex:"-150"}}>
 
           <Toolbar>
 
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
+            <Typography  variant="h6" className={classes.title}>
          {      userName
          }
             </Typography>
@@ -182,3 +182,5 @@ export default withRouter(connect(mapStateToProps)(function MenuAppBar(props) {
     </div>
   );
 }))
+
+// 
