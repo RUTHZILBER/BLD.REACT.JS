@@ -222,7 +222,7 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
 
             {/* השלמה אוטומאית לתגיות + קומבובוקס */}
             <Autocomplete
-                style={{ color: "white", display: "flex", justifyContent: "space-between" }}
+                style={{ color: "white"}}
                 multiple
                className="a23"
                 // אך לא עובדת בעת הקלדת אנטר במקלדת 🎃 DB פונקציה הרצה רק בזמן לחיצת עכבר על התגית, ומעלה את ערכי הנקודות ב

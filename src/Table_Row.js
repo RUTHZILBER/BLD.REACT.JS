@@ -175,8 +175,8 @@ export default connect(mapStateToProps)(function Table_Row(props) {
     return (
         <React.Fragment>
 
-            <TableRow className={classes.root} id={"row_id_" + row.songId}>
-                <TableCell>
+            <TableRow  className="niceFont" className={classes.root} id={"row_id_" + row.songId}>
+                <TableCell  className="niceFont">
 
 
                     <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
