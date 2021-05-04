@@ -181,6 +181,7 @@ export default withRouter(connect(mapStateToProps)(function UpdateAccount(props)
           history.push("/Home");
         }
         else {
+         
           var errorProp = res.Message;
           if (errorProp.charAt(0) == ' ') {
             setWarning(res.Message);
