@@ -13,7 +13,7 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Alert from '@material-ui/lab/Alert';
-import bld from './bld2.jpg';
+import bld from './bld.JPG';
 
 //at this page few shortcuts:
 //firstName=f, lastName=l, userName=u, email=e, password=p, configrmPassword=c

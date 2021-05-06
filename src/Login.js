@@ -16,7 +16,7 @@ import ErrorMessage from './ErrorMessage';
 import Alert from '@material-ui/lab/Alert';
 import Collapse from '@material-ui/core/Collapse';
 import { Redirect, Link } from "react-router-dom";
-import bld from './bld2.jpg';
+import bld from './bld.JPG';
 
 
 

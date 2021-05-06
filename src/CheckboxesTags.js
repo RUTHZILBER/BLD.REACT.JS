@@ -115,6 +115,7 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
 
     // פונקציה המזמנת את פונקציה הורדת השיר
     function downloadAllSongs(e) {
+        debugger;
         for (var i = 0; i < songsIdArray.length; i++) {
             downloadTxtFile(e, songsIdArray[i]);
         }
@@ -122,7 +123,7 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
     }
     //מתוך כל התגיות שנבחרו עם שם שיר והורדת שורה מידי תגית TXT פונקציה להורדת קובץ
     function downloadTxtFile(e, i) {
-
+        debugger;
         var currentSongAll = songList.filter(p => p.songId == i);
         if (currentSongAll.length == 1) {
             var currentSong = currentSongAll[0];
@@ -164,10 +165,12 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
         debugger;
         var v = e.currentTarget.firstElementChild.innerText;
         v = v.substring(0, v.length);//?
-        var to = v.indexOf("   מהשיר   ");
-        var to2 = v.length;
-        var from2 = v.lastIndexOf("   מהשיר   ") + 11;
+        var to = v.indexOf(" מהשיר ");
         var tagush = v.substring(0, to);
+
+        
+        var from2 =tagush.length+7;// v.lastIndexOf(" מהשיר ") + 12;
+        var to2 = v.length;
 
         var songush = v.substring(from2, to2);
         var line = tagsArray.filter(i => i.tagName == tagush && i.songName == songush);
@@ -183,6 +186,7 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
             var newId = line[0].songId;
             cloneSongsId = cloneSongsId.concat(newId);
             setSongsIdArray(cloneSongsId);
+            debugger;
 
         }
         else {
@@ -227,9 +231,9 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
                className="a23"
                 // אך לא עובדת בעת הקלדת אנטר במקלדת 🎃 DB פונקציה הרצה רק בזמן לחיצת עכבר על התגית, ומעלה את ערכי הנקודות ב
                 onChange={(e) => {
-                    debugger;
+                 //   debugger;
                     if (e.target.checked) {
-                        debugger;
+                     //   debugger;
                         upgrowTagPointReal(e)
                     }
                     else {
