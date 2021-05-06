@@ -6,6 +6,7 @@ import PublicIcon from '@material-ui/icons/Public';
 import FingerprintIcon from '@material-ui/icons/Fingerprint';
 import AppsIcon from '@material-ui/icons/Apps';
 import './ResponsiveDrawer.css';
+import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -45,13 +46,23 @@ import bld9 from './bld9.png';
 import bld10 from './bld10.PNG';
 import bld11 from './bld11.png';
 import './ResponsiveDrawer.css';
+import ii from "./i.jpg";
 
-const useStylesAboutUs = makeStyles({
+const useStylesAboutUs = makeStyles((theme) => ({
   root: {
     width: 500,
     height: 450,
   },
-});
+  image: {
+
+    backgroundImage: `url(${ii})`, // bld,require('./logo.jpeg') 
+    backgroundRepeat: 'no-repeat',
+    backgroundColor:
+      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+    backgroundSize: 'contain, cover',
+    backgroundPosition: 'center',
+  }
+}));
 
 const itemData = [
   {
@@ -117,6 +128,15 @@ const useStylesDialogInsruction = makeStyles((theme) => ({
     marginLeft: theme.spacing(2),
     flex: 1,
   },
+  image: {
+
+    backgroundImage: `url(${ii})`, // bld,require('./logo.jpeg') 
+    backgroundRepeat: 'no-repeat',
+    backgroundColor:
+      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+    backgroundSize: 'contain, cover',
+    backgroundPosition: 'center',
+  }
 }));
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -278,11 +298,9 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
           </AppBar>
 
 
-          הוראות שימוש :
-          בלחיצה על כפתור הפלוס, ניתן להעלות שיר.
-          ניתן לעדכן את שמך. שים לב לבחור סיסמא תקינה, כתובת מייל ושם משתמש שלא קימים!
-          ניתן לאתר שיר ע''פ תגיות,
-          ואם לא מוצאים, לפי סימן השאלה. בהצלחה'
+          <img src={ii} />
+
+         
         </Dialog>
       </div>
 
@@ -302,6 +320,7 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
               <Button autoFocus color="inherit" onClick={handleCloseDI2}>
                 בחזרה לאתר
             </Button>
+            
             </Toolbar>
           </AppBar>
 
@@ -326,7 +345,7 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
       {/*  third, instruction.*/}
       <div>
 
-        <Dialog style={{ display: "flex", justifyContent: "center", alignItems: "stretch" }} fullScreen open={openDI3} onClose={handleCloseDI3} TransitionComponent={Transition}>
+        <Dialog  fullScreen open={openDI3} onClose={handleCloseDI3} TransitionComponent={Transition}>
           <AppBar className={classesDI.appBar}>
             <Toolbar>
               <IconButton edge="start" color="inherit" onClick={handleCloseDI3} aria-label="close">
@@ -340,11 +359,7 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
             </Button>
             </Toolbar>
           </AppBar>
-
-
-
-          
-
+          <img src={ii} />
 
         </Dialog>
       </div>
@@ -363,7 +378,7 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
         <ListItem onClick={updateYourAccount} button key="update">
           <ListItemIcon ><FingerprintIcon />
           </ListItemIcon>
-          <ListItemText className="niceFont"  primary="עדכון הפרטים האישיים שלי" />
+          <ListItemText className="niceFont" primary="עדכון הפרטים האישיים שלי" />
         </ListItem>
 
         <ListItem onClick={handleClickOpenDI} title="aa" button key="instructons">
@@ -371,8 +386,6 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
           </ListItemIcon>
           <ListItemText primary="הוראות שימוש" />
         </ListItem>
-
-
 
       </List>
       <ListItem onClick={handleClickOpenDI2} title="aa" button key="icons" >
@@ -423,7 +436,7 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
         {/* השורה הראשונה ובתוכה תיבת הטקסט של התגיות וכפתור ההורדה הכללי */}
         <Toolbar style={{ display: "flex", justifyContent: "center" }}>
           <IconButton
-          color="white"
+            color="white"
             // color="inherit"
             aria-label="open drawer"
             edge="start"
@@ -432,7 +445,7 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
           >
             <MenuIcon />
           </IconButton>
-          <Typography style={{width:"900px", marginTop: "50px", marginLeft: "270px", marginRight: "10px" }} variant="inherit" >
+          <Typography style={{ width: "900px", marginTop: "50px", marginLeft: "270px", marginRight: "10px" }} variant="inherit" >
 
             {/*      תיבת הטקסט ובתוכה התגיות*/}
             <CheckboxesTags severity={severity} setSeverity={setSeverity} alertContent={alertContent} setAlertContent={setAlertContent} text={text} setText={setText} errorPlay={errorPlay} setErrorPlay={setErrorPlay}></CheckboxesTags>

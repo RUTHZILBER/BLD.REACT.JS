@@ -54,7 +54,6 @@ export default withRouter(connect(mapStateToProps)(function SignInSide(props) {
   const [errorMsg, setErrorMsg] = useState("");
 
   const useStyles = makeStyles((theme) => ({
-
     root: {
       height: '100vh',
     },
