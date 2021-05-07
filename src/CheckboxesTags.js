@@ -262,7 +262,7 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
                 // מיון התגיות לפי שמן ואחר כך לפי מספר הנקודות
                 options={tagsArray}
                 disableCloseOnSelect
-                getOptionLabel={(option) => option.songName}
+                getOptionLabel={(option) => option.tagName}
                 renderOption={(option, { selected }) => (
 
                     <div>

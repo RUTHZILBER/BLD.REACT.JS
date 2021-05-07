@@ -46,23 +46,23 @@ import bld9 from './bld9.png';
 import bld10 from './bld10.PNG';
 import bld11 from './bld11.png';
 import './ResponsiveDrawer.css';
-import ii from "./i.jpg";
+import ii from "./userInstruction.jpg";
 
-const useStylesAboutUs = makeStyles((theme) => ({
-  root: {
-    width: 500,
-    height: 450,
-  },
-  image: {
+// const useStylesAboutUs = makeStyles((theme) => ({
+//   root: {
+//     width: 500,
+//     height: 450,
+//   },
+//   image: {
 
-    backgroundImage: `url(${ii})`, // bld,require('./logo.jpeg') 
-    backgroundRepeat: 'no-repeat',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    backgroundSize: 'contain, cover',
-    backgroundPosition: 'center',
-  }
-}));
+//     backgroundImage: `url(${ii})`, // bld,require('./logo.jpeg') 
+//     backgroundRepeat: 'no-repeat',
+//     backgroundColor:
+//       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+//     backgroundSize: 'contain, cover',
+//     backgroundPosition: 'center',
+//   }
+// }));
 
 const itemData = [
   {
@@ -257,7 +257,6 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
     history.push("/UpdateAccount");
     event.preventDefault();
   }
-  const classesAboutUs = useStylesAboutUs();
 
 
   const classes = useStyles();
@@ -292,13 +291,13 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
                 הוראות שימוש
             </Typography>
               <Button autoFocus color="inherit" onClick={handleCloseDI}>
-                בחזרה לאתר
+              הבנתי
             </Button>
             </Toolbar>
           </AppBar>
 
 
-          <img src={ii} />
+          <img style={{marginTop:"80px",maxWidth:"1000px"}} src={ii} />
 
          
         </Dialog>
@@ -318,14 +317,14 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
                 סמלים שלנו
             </Typography>
               <Button autoFocus color="inherit" onClick={handleCloseDI2}>
-                בחזרה לאתר
+                חזרה לאתר
             </Button>
-            
+
             </Toolbar>
           </AppBar>
 
-          <ImageList sx={{ width: "100vw", height: "100vh", display: "flex", justifyContent: "center", row: "row", flexWrap: "wrap" }} cols={3}>
-            rowHeight={121}     {itemData.map((item) => (
+          <ImageList  style={{ marginTop: "80px" }}  sx={{ width: "100vw", height: "100vh", display: "flex", justifyContent: "center", row: "row", flexWrap: "wrap" }} cols={3}>
+                {itemData.map((item) => (
             <ImageListItem key={item.img}>
               <img
                 style={{ maxWidth: "400px", maxHeight: "200px", backgroundSize: "cover contain", background: "no-repet" }}
@@ -355,7 +354,7 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
                 עלינו
             </Typography>
               <Button autoFocus color="inherit" onClick={handleCloseDI3}>
-                סימתי
+                אהבתי
             </Button>
             </Toolbar>
           </AppBar>
@@ -394,7 +393,7 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
         <ListItemText primary="סמלים שלנו" />
       </ListItem>
 
-      <ListItem onClick={handleClickOpenDI3} button title="aa"  >
+      <ListItem  onClick={handleClickOpenDI3} button title="aa"  >
         <ListItemIcon > <PublicIcon />
         </ListItemIcon>
         <ListItemText primary="עלינו" />
