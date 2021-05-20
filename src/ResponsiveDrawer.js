@@ -6,7 +6,6 @@ import PublicIcon from '@material-ui/icons/Public';
 import FingerprintIcon from '@material-ui/icons/Fingerprint';
 import AppsIcon from '@material-ui/icons/Apps';
 import './ResponsiveDrawer.css';
-import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -47,6 +46,7 @@ import bld10 from './bld10.PNG';
 import bld11 from './bld11.png';
 import './ResponsiveDrawer.css';
 import ii from "./userInstruction.jpg";
+import aboutUs from ".aboutUs.png";
 
 // const useStylesAboutUs = makeStyles((theme) => ({
 //   root: {
@@ -358,7 +358,7 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
             </Button>
             </Toolbar>
           </AppBar>
-          <img src={ii} />
+          <img src={aboutUs} />
 
         </Dialog>
       </div>
