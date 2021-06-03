@@ -46,23 +46,7 @@ import bld10 from './bld10.PNG';
 import bld11 from './bld11.png';
 import './ResponsiveDrawer.css';
 import ii from "./userInstruction.jpg";
-//import aboutUs from ".aboutUs.png";
-
-// const useStylesAboutUs = makeStyles((theme) => ({
-//   root: {
-//     width: 500,
-//     height: 450,
-//   },
-//   image: {
-
-//     backgroundImage: `url(${ii})`, // bld,require('./logo.jpeg') 
-//     backgroundRepeat: 'no-repeat',
-//     backgroundColor:
-//       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-//     backgroundSize: 'contain, cover',
-//     backgroundPosition: 'center',
-//   }
-// }));
+import aboutUs from "./aboutUs.png";
 
 const itemData = [
   {
@@ -358,7 +342,7 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
             </Button>
             </Toolbar>
           </AppBar>
-          {/* <img src={aboutUs} /> */}
+          <img style={{marginTop:"80px",maxWidth:"900px",minHeight:"1500px"}}  src={aboutUs} /> 
 
         </Dialog>
       </div>

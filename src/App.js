@@ -23,10 +23,6 @@ import rtl from 'jss-rtl';
 
 function App() {
 
-  const theme = createMuiTheme({
-    direction: 'rtl',
-  });
-
 
   const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 

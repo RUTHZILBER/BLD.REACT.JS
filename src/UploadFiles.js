@@ -26,11 +26,11 @@ function mapStateToProps(state) {
     password: state.Password,
     nothingTime: state.NotingTime,
     comment: state.Comment,
-    songList:state.SongList
+    songList: state.SongList
   };
 }
 export default withRouter(connect(mapStateToProps)(function UploadFiles(props) {
-  const { history, alertContent,dispatch, setAlertContent, errorPlay, setErrorPlay, severity, setSeverity, songList } = props;
+  const { history, alertContent, dispatch, setAlertContent, errorPlay, setErrorPlay, severity, setSeverity, songList } = props;
   const useStyles = makeStyles((theme) => ({
     backdrop: {
       zIndex: theme.zIndex.drawer + 1,
@@ -39,7 +39,8 @@ export default withRouter(connect(mapStateToProps)(function UploadFiles(props) {
   }));
 
   const classes = useStyles();
-  const [isDisable,setIsDisable]=useState(false);
+  const [isDisable, setIsDisable] = useState(false);
+
   const [songsArray, setSongsArray] = useState([
     {
       SongId: "",
@@ -97,6 +98,7 @@ export default withRouter(connect(mapStateToProps)(function UploadFiles(props) {
   };
 
   function insertSelectedSongsAndInvestigration(status) {
+    debugger;
 
     handleToggle1();
     var files1 = event1.target.files;
@@ -104,21 +106,18 @@ export default withRouter(connect(mapStateToProps)(function UploadFiles(props) {
     const files = files1;
     var numberOfFiles = files.length;
     var p = 0;
-    setIsDisable(true, () => {
-      this.props.callback(this.isDisable)
-  }); 
     Object.keys(files).forEach(i => {
       const file = files[i];
       const reader = new FileReader();
       reader.onload = (event1) => {
-      
-    //  alert(isDisable);
+
+        //  alert(isDisable);
         updateSongArray(event1);
         var obj = {};
         obj["SongContect"] = event1.target.result;
         obj["UserId"] = window.Store.getState().UserId;
         obj["IsPermit"] = status;
-       
+
         listOfSongConcat.push(obj);
         if (listOfSongConcat.length == numberOfFiles)//הכנסת השירים למסד הנתונים
         {
@@ -142,7 +141,7 @@ export default withRouter(connect(mapStateToProps)(function UploadFiles(props) {
                 if (res.Status == true) {
 
                   setSeverity("success");
-                  setAlertContent(res.Message+" השיר יהא זמין להורדה ולצפיה מהכניסה הבאה לאתר .  ");
+                  setAlertContent(res.Message + " השיר יהא זמין להורדה ולצפיה מהכניסה הבאה לאתר .  ");
                   showError();
                   p = p + 1;
                   if (p == numberOfFiles) {
@@ -155,18 +154,18 @@ export default withRouter(connect(mapStateToProps)(function UploadFiles(props) {
                     songName: thisSong.songName,
                     neatTags: thisSong.neatTags,
                     pointsTags: thisSong.pointsTags,
-                    isPermit:thisSong.isPermit,
+                    isPermit: thisSong.isPermit,
                     tag1: thisSong.tag1,
                     tag2: thisSong.tag2,
                     tag3: thisSong.tag3,
                     userId: thisSong.userId,
                     userName: thisSong.userName
-                    
+
                     // עידכון השיר בטבלה מיד לאחר שמעלים אותו
                     // מסובך מאד, כי הוספת השיר לא מביאה את השיר ואת תגיותיו והנקודות. בסי שארפ כדאי לשנות. ?
 
                   }
-debugger;
+                  debugger;
                   var cloneSongList = songList;
 
                   cloneSongList = cloneSongList.concat(newSong);
@@ -197,21 +196,18 @@ debugger;
         }
       }
       reader.readAsText(file);
-      
+
     });
 
     setIndex("-300");
-    debugger;
-   
-    setIsDisable(false, () => {
-      this.props.callback(this.isDisable)
-  }); 
-  //  alert(isDisable);
+    setTimeout(() => {
+      setIsDisable(false);
+    }, 10000);
+    
+
   }
 
-  function callSetIsDisable(){
-    setIsDisable(false);
-  }
+ 
   const [index, setIndex] = useState("20");
 
   function showError() {
@@ -234,11 +230,9 @@ debugger;
 
 
       <Dialog
-        //style={{position:"fixed", zIndex: index }} 
+       
         dir="rtl"
         open={open}
-        //TransitionComponent={Transition}
-        //keepMounted
         onClose={handleClose}
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
@@ -247,23 +241,32 @@ debugger;
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description" >
             שלום. האם ברצונך לאשר את שיתוף השיר במאגר הגלובלי
-             ? אם הינך מאשר, אלגוריתם השיום יהיה מדויק, אמין ונכון יותר!
+            ? אם הינך מאשר, אלגוריתם השיום יהיה מדויק, אמין ונכון יותר!
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={() => {
-
-            handleClose();
+            setIsDisable(true);
+            setTimeout(() => {
+              handleClose();
+              insertSelectedSongsAndInvestigration(false);
+            }, 2000);
             
-            insertSelectedSongsAndInvestigration(false);
+
 
           }} color="primary">
             אני מוחה על כך
           </Button>
           <Button onClick={() => {
-            handleClose();
-            
-            insertSelectedSongsAndInvestigration(true);
+            setIsDisable(true);
+            setTimeout(() => {
+              handleClose();
+              insertSelectedSongsAndInvestigration(true);
+            }, 2000);
+
+            // setTimeout(() => {
+            //   setIsDisable(false);
+            // }, 2000);
 
           }} color="primary">
             בהחלט!
@@ -272,12 +275,12 @@ debugger;
       </Dialog>
 
 
-      <input type="button" style={{backgroundColor:"transparent"}}  className="uploadButton" width="0px " value="" />
+      <input type="button" style={{ backgroundColor: "transparent" }} className="uploadButton" width="0px " value="" />
       <input onChange={(e) => {
         handleClickOpen(e);
 
 
-      }} type="file"  disabled={isDisable} multiple name="upload" accept=".txt" id="fileUpload" />
+      }} type="file" disabled={isDisable} multiple name="upload" accept=".txt" id="fileUpload" />
 
     </div>
 
