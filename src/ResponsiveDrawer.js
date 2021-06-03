@@ -46,7 +46,7 @@ import bld10 from './bld10.PNG';
 import bld11 from './bld11.png';
 import './ResponsiveDrawer.css';
 import ii from "./userInstruction.jpg";
-import aboutUs from ".aboutUs.png";
+//import aboutUs from ".aboutUs.png";
 
 // const useStylesAboutUs = makeStyles((theme) => ({
 //   root: {
@@ -358,7 +358,7 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
             </Button>
             </Toolbar>
           </AppBar>
-          <img src={aboutUs} />
+          {/* <img src={aboutUs} /> */}
 
         </Dialog>
       </div>
