@@ -222,7 +222,7 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
     }
 
     return (
-        <div id="a" style={{ display: "flex", justifyContent: "space-around", flexDirection: "row-reverse", flexWrap: "wrap" }}>
+        <div id="ac"dir="rtl" style={{ display: "flex", justifyContent: "space-around", flexDirection: "row-reverse", flexWrap: "wrap" }}>
 
             {/* השלמה אוטומאית לתגיות + קומבובוקס */}
             <Autocomplete
