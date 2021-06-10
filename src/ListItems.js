@@ -7,34 +7,16 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import InboxIcon from '@material-ui/icons/Inbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-  },
-}));
+import {useStyles,useStyles2} from './ListItemsStyle.js';
 
 export default function ListItems(props) {
 
   const { searchesArray, setSearchesArray, dis, setDis, rows, setRows } = props;
+  debugger;
   const classes = useStyles();
 
-
-
-
-  //   const handleListItemClick = (event, index) => {
-  //     setSelectedIndex(index);
-  //   };
-
-
-  //const [selectedIndex, setSelectedIndex] = React.useState(1);
   return (
     <div className={classes.root} style={{ position: "fixed", display: dis, top: "30px", right: "30px", boxShadow: "0 0 10px #999999" }}>
-      {/* <List component="nav" aria-label="main mailbox folders" >
-        
-      </List> */}
       <Divider />
       {/* רשימת השירים שאותרו ע''י החפוש המיוחד ממופה לרשימה וממוש פעולת לחיצה עבור כל שדה=שורה , המבטא את שם השיר שאותר. ניווט לשורה זו בטבלה, */}
       <List>
@@ -43,12 +25,8 @@ export default function ListItems(props) {
 
             <ListItemText primary={i.songName}
               onClick={() => {
-               
-                
-                
                 var row = document.querySelectorAll('#row_id_' + i.songId)[0];
                 var numSerchesResult=searchesArray.length;
-               
                 var tempTop=row.offsetTop+10*numSerchesResult;
                 //הזזת המסך למיקום בהתאם לשיר שנבחר
                 window.scroll({
@@ -56,8 +34,6 @@ export default function ListItems(props) {
                   left: 0,
                   top: tempTop
                 });
-
-
               }
               }
             />

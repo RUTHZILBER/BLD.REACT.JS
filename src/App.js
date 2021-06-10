@@ -2,8 +2,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import Store from './Store';
-
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -44,7 +42,7 @@ function App() {
 
             <Switch>
 
-              {/* הדפים של הפרויקט בניתוב ראוטינג למהירות ויעילות */}
+              {/* הדפים של הפרויקט בניתוב ראוטינג עבור מהירות ויעילות */}
 
               <Route path="/Login">
                 <SignInSide title="hell" />
@@ -75,7 +73,7 @@ function App() {
             </Switch>
           </Router>
 
-          {/* </ThemeProvider> */}
+        
         </div>
      
     </Provider >

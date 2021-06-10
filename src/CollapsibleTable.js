@@ -110,22 +110,16 @@ export default connect(mapStateToProps)(function CollapsibleTable(props) {
             <TableRow >
               <TableCell />
               {/* כותרות הטבלה */}
+
               <TableCell className="niceFont" align="right">מספר התגיות</TableCell>
               <TableCell className="niceFont"  align="right">תגית נפוצה</TableCell>
-
               <TableCell className="niceFont"  align="right">תגית משנה</TableCell>
               <TableCell className="niceFont"  align="right">תגית  ראשית</TableCell>
               <TableCell className="niceFont"  align="right"> הרשאה לשיתוף במאגר </TableCell>
               <TableCell className="niceFont"  align="right">משתמש שהעלה</TableCell>
               <TableCell className="niceFont" >שם השיר</TableCell>
-
-
-
-
-
-
               <TableCell  className="niceFont"  style={{ display: "none" }} align="right">מזהה השיר </TableCell>
-
+              
             </TableRow>
           </TableHead>
           {/* הצגת גוף הטבלה, ע"י מפוי רשימת השירים המפולטרת */}

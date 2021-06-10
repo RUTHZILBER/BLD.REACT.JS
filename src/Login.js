@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import bld from './bld.JPG';
 import './Login.css';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,11 +17,18 @@ import ErrorMessage from './ErrorMessage';
 import Alert from '@material-ui/lab/Alert';
 import Collapse from '@material-ui/core/Collapse';
 import { Redirect, Link } from "react-router-dom";
-import bld from './bld.JPG';
-
-
-
-
+// import useStyles from './LoginStyles.js';
+// import   setErrorMessageE from './LoginStyles.js';
+// import  setColorE from './LoginStyles.js';
+// import  colorP from './LoginStyles.js';
+// import    setColorP from './LoginStyles.js';
+// import errorMessageE from './LoginStyles.js'
+// import   errorMessageP from './LoginStyles.js';
+// import   setErrorMessageP from './LoginStyles.js';
+// import   errorMsg from './LoginStyles.js';
+// //import  { setErrorMessageE,setColorE,colorP, setColorP,errorMessageE,errorMessageP, setErrorMessageP,errorMsg, setErrorMsg} from './LoginStyles.js';
+// import  setErrorMsg from './LoginStyles.js';
+// import  classes from './LoginStyles.js';
 function mapStateToProps(state) {
   return {
     userId: state.UserId,
@@ -52,54 +60,54 @@ export default withRouter(connect(mapStateToProps)(function SignInSide(props) {
   const [errorMessageE, setErrorMessageE] = useState("");
   const [errorMessageP, setErrorMessageP] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-
   const useStyles = makeStyles((theme) => ({
-    root: {
-      height: '100vh',
-    },
-    image: {
-    
-      backgroundImage:`url(${bld})`, // bld,require('./logo.jpeg') 
-      backgroundRepeat: 'no-repeat',
-      backgroundColor:
-        theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-      backgroundSize: 'contain, cover',
-      backgroundPosition: 'center',
-    },
-    paper: {
-      margin: theme.spacing(8, 4),
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
-    avatar: {
-      margin: theme.spacing(1),
-      backgroundColor: theme.palette.secondary.main,
-    },
-    form: {
-      width: '100%', // Fix IE 11 issue.
-      marginTop: theme.spacing(1),
-    },
-    submit: {
-      margin: theme.spacing(3, 0, 2),
-    },
+      root: {
+          height: '100vh',
+      },
+      image: {
 
-    lableE: {
-      color: colorE
-    },
-    borderE: {
-      borderWidth: "2px",
-      borderColor: colorE + "!important"
-    },
+          backgroundImage: `url(${bld})`, // bld,require('./logo.jpeg') 
+          backgroundRepeat: 'no-repeat',
+          backgroundColor:
+              theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+          backgroundSize: 'contain, cover',
+          backgroundPosition: 'center',
+      },
+      paper: {
+          margin: theme.spacing(8, 4),
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+      },
+      avatar: {
+          margin: theme.spacing(1),
+          backgroundColor: theme.palette.secondary.main,
+      },
+      form: {
+          width: '100%', // Fix IE 11 issue.
+          marginTop: theme.spacing(1),
+      },
+      submit: {
+          margin: theme.spacing(3, 0, 2),
+      },
 
-    lableP: {
-      color: colorP
-    },
-    borderP: {
-      borderWidth: "2px",
-      borderColor: colorP + "!important"
-    },
+      lableE: {
+          color: colorE
+      },
+      borderE: {
+          borderWidth: "2px",
+          borderColor: colorE + "!important"
+      },
+
+      lableP: {
+          color: colorP
+      },
+      borderP: {
+          borderWidth: "2px",
+          borderColor: colorP + "!important"
+      },
   }));
+  const classes = useStyles();
   function login() {
     debugger;
 
@@ -187,7 +195,7 @@ export default withRouter(connect(mapStateToProps)(function SignInSide(props) {
 
         })
   }
-  const classes = useStyles();
+  
 
   function showErrorMessage() {//ביטול הצגת הודעת השגיאה
     setErrorPlay("");
@@ -230,17 +238,17 @@ export default withRouter(connect(mapStateToProps)(function SignInSide(props) {
   const [errorPlay, setErrorPlay] = useState("none");
   return (
     
-    <Grid className="niceFont" style={{min: 0, style: { textAlign: 'right' }}} container component="main" className={classes.root}>
+    <Grid className="niceFont" style={{min: 0, style: { textAlign: 'right' }}} container component="main" className={classes?.root}>
       <CssBaseline />
-      <Grid className="niceFont" item xs={false} sm={4} md={7} className={classes.image} />
+      <Grid className="niceFont" item xs={false} sm={4} md={7} className={classes?.image} />
       <Grid className="niceFont" item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className="niceFont" className={classes.paper}>
+        <div className="niceFont" className={classes?.paper}>
          
           <Typography className="niceFont" component="h1" variant="h5">
             LOGIN
           </Typography>
 
-          <form  style={{textAlign: 'right'}} className={"niceFont "+classes.form }  noValidate>
+          <form  style={{textAlign: 'right'}} className={"niceFont "+classes?.form }  noValidate>
             <div className="niceFont" className="ff"><ErrorMessage message={errorMsg}/></div>
             <TextField  className="ff" value={usr.Email} onChange={(e) => { handleTyping(e, "Email") }}
               variant="outlined"
@@ -305,7 +313,7 @@ export default withRouter(connect(mapStateToProps)(function SignInSide(props) {
               type="button"
               variant="contained"
               color="primary"
-              className={classes.submit +"ff"}
+              className={classes?.submit +"ff"}
             >
               הכנס
             </Button>

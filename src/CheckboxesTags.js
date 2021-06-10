@@ -49,11 +49,6 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
     function filterTag() {
         debugger;
         if (window.Store.getState().SongList.length > 0) {
-
-
-
-
-
             var cloneTagList = (
                 window.Store.getState().SongList.filter(
                     rows =>
@@ -115,7 +110,7 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
 
     // פונקציה המזמנת את פונקציה הורדת השיר
     function downloadAllSongs(e) {
-        debugger;
+        
         for (var i = 0; i < songsIdArray.length; i++) {
             downloadTxtFile(e, songsIdArray[i]);
         }
@@ -142,10 +137,6 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
             document.body.appendChild(element);
             element.click();
         }
-
-
-
-
     }
 
     {/* לצורך העלאת נקודות התגיות */ }
@@ -164,7 +155,7 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
     function upgrowTagPointReal(e) {
         debugger;
         var v = e.currentTarget.firstElementChild.innerText;
-        v = v.substring(0, v.length);//?
+        v = v.substring(0, v.length);//
         var to = v.indexOf(" מהשיר ");
         var tagush = v.substring(0, to);
 
@@ -181,16 +172,15 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
             var cloneArray = songsArray.concat({ songId: line[0].songId, songContect: line[0].songContect, songName: line[0].songName + " " + line[0].tagName });
             setSongsArray(cloneArray);
             //  alert(" התגית:  " + tagush + ", מהשיר: " + songush);
-
             var cloneSongsId = [...songsIdArray];
             var newId = line[0].songId;
             cloneSongsId = cloneSongsId.concat(newId);
             setSongsIdArray(cloneSongsId);
-            debugger;
+           
 
         }
         else {
-            // alert(" השיר לא נמצא ");
+            
         }
 
     }
@@ -213,11 +203,10 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
             .then(res => res.json())
 
             .then((res) => {
-                // debugger;
-                // alert(res.Data);
+               
             },
                 (err) => {
-                    //   debugger;
+                    
                 })
     }
 
@@ -294,8 +283,7 @@ export default connect(mapStateToProps)(function CheckboxesTags(props) {//שטח
                 )}
             />
             {/* תגית ההורדה */}
-            <IconButton onClick={downloadAllSongs} className="ib"  width="70px"  > <SystemUpdateAltIcon style={{ color: "white", width: "110px" }} width="70px" ></SystemUpdateAltIcon></IconButton>
-
+            <IconButton onClick={downloadAllSongs} className="ib"  width="70px"> <SystemUpdateAltIcon style={{ color: "white", width: "110px" }} width="70px" ></SystemUpdateAltIcon></IconButton>
         </div>
     );
 })
