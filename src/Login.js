@@ -250,6 +250,8 @@ export default withRouter(connect(mapStateToProps)(function SignInSide(props) {
 
           <form  style={{textAlign: 'right'}} className={"niceFont "+classes?.form }  noValidate>
             <div className="niceFont" className="ff"><ErrorMessage message={errorMsg}/></div>
+
+
             <TextField  className="ff" value={usr.Email} onChange={(e) => { handleTyping(e, "Email") }}
               variant="outlined"
               margin="normal"
@@ -273,6 +275,7 @@ export default withRouter(connect(mapStateToProps)(function SignInSide(props) {
               }}
               className="ff" />
           <Collapse className="ff"  style={{min: 0, style: { textAlign: 'right' }}} in={false}>
+            
               <Alert className="ff"  dir="rtl" style={{display: errorPlay }}  severity="error" >
                 {errorMessage}
               </Alert>
