@@ -377,22 +377,26 @@ export default withRouter(connect(mapStateToProps)(function NewAccount(props) {
           break;
         }
 
-      case "Email":
-        {
-          setColorE("blue");
-          setErrorMessageE("");
-          break;
-        }
-
-      case "Password":
-        {
-          setColorP("blue");
-          setErrorMessageE("");
-          break;
-        }
-
-      case "UserName":
-        setColorC("blue");
+        case "Email":
+          {
+            setColorE("blue");
+            setErrorMessageE("");
+            break;
+          }
+  
+        case "Password":
+          {
+            setColorP("blue");
+            setErrorMessageP("");
+            break;
+          }
+  
+        case "UserName":
+          {
+            setErrorMessageU("");
+            setColorU("blue");
+            break;
+          }
 
 
       default:
@@ -492,7 +496,7 @@ export default withRouter(connect(mapStateToProps)(function NewAccount(props) {
       return false;
   }
   //   //הסיסמא
-  function functionConfirmation(e) {
+  function confirmation(e) {
     var clonePassword = e.target.value;
     setPassword_(clonePassword);
     setColorC("blue");
@@ -629,7 +633,7 @@ export default withRouter(connect(mapStateToProps)(function NewAccount(props) {
                     />
                   </Grid>
                   {/* אימות סיסמא */}
-                  <Grid item xs={12} sm={6} onChange={(e) => { handleTyping(e, "Password") }}>
+                  <Grid item xs={12} sm={6}onChange={(e) => { confirmation(e) }}>
                     <TextField
                       required
                       id="country"
@@ -657,7 +661,7 @@ export default withRouter(connect(mapStateToProps)(function NewAccount(props) {
                     />
                   </Grid>
                   {/* סיסמא */}
-                  <Grid item xs={12} sm={6} onChange={(e) => { functionConfirmation(e) }} >
+                  <Grid item xs={12} sm={6}  onChange={(e) => { handleTyping(e, "Password") }} >
                     <TextField
                       required
                       inputProps={{

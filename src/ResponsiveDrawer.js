@@ -57,10 +57,7 @@ const itemData = [
     img: bld2,
     title: 'Burger',
   },
-  {
-    img: bld3,
-    title: 'Camera',
-  },
+
   {
     img: bld4,
     title: 'Coffee',
@@ -281,7 +278,7 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
           </AppBar>
 
 
-          <img style={{marginTop:"80px",maxWidth:"1000px"}} src={ii} />
+          <img style={{marginTop:"80px",minWidth:"1300px"}} src={ii} />
 
          
         </Dialog>
@@ -342,7 +339,7 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
             </Button>
             </Toolbar>
           </AppBar>
-          <img style={{marginTop:"80px",maxWidth:"900px",minHeight:"1500px"}}  src={aboutUs} /> 
+          <img style={{marginTop:"80px",minHeight:"1000px"}}  src={aboutUs} /> 
 
         </Dialog>
       </div>
@@ -388,7 +385,7 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
 
       </List>
 
-      <MenuAppBar style={{ marginTop: "200px" }} severity={severity} setSeverity={setSeverity} alertContent={alertContent} setAlertContent={setAlertContent} errorPlay={errorPlay} setErrorPlay={setErrorPlay}></MenuAppBar>
+      <MenuAppBar style={{ marginTop: "0px" }} severity={severity} setSeverity={setSeverity} alertContent={alertContent} setAlertContent={setAlertContent} errorPlay={errorPlay} setErrorPlay={setErrorPlay}></MenuAppBar>
       {/* הכנסת השיר   2 משתמשים  */}
 
     </div>
@@ -407,7 +404,7 @@ export default withRouter(connect(mapStateToProps)(function ResponsiveDrawer(pro
 
         <div className={classes.toolbar} />
 
-        <CollapsibleTable severity={severity} setSeverity={setSeverity} alertContent={alertContent} setAlertContent={setAlertContent} text={text} setText={setText} errorPlay={errorPlay} setErrorPlay={setErrorPlay}>
+        <CollapsibleTable style={{marginTop:"275px"}} severity={severity} setSeverity={setSeverity} alertContent={alertContent} setAlertContent={setAlertContent} text={text} setText={setText} errorPlay={errorPlay} setErrorPlay={setErrorPlay}>
         </CollapsibleTable>
         <div>
 

@@ -364,6 +364,10 @@ export default withRouter(connect(mapStateToProps)(function UpdateAccount(props)
     Password: password
   });
 
+/////////
+
+
+
   const [password_, setPassword_] = useState(password);
   //שנוי השדות, במקרה של שדות אינפוט
   function handleTyping(event, prop) {
@@ -405,12 +409,17 @@ export default withRouter(connect(mapStateToProps)(function UpdateAccount(props)
       case "Password":
         {
           setColorP("blue");
-          setErrorMessageE("");
+          setErrorMessageP("");
           break;
         }
 
       case "UserName":
-        setColorC("blue");
+        {
+          setErrorMessageU("");
+          setColorU("blue");
+          break;
+        }
+        
 
 
       default:
@@ -461,19 +470,20 @@ export default withRouter(connect(mapStateToProps)(function UpdateAccount(props)
       return false;
   }
   //תקינות סיסמא
-  function isValidatePassword(p) {
-    //use @r
-    // א) הסיסמה צריכה להיות מכילה אות רישיות אחת
 
-    // ב) זה צריך להתחיל עם אופי מיוחד או @#a
+ function isValidatePassword(p) {
+  //use @r
+  // א) הסיסמה צריכה להיות מכילה אות רישיות אחת
 
-    // ג) הוא אינו צריך להכיל אותיות תנועה=,u
+  // ב) זה צריך להתחיל עם אופי מיוחד או @#a
 
-    // ד) זה צריך להיות אלפאנומרי.
+  // ג) הוא אינו צריך להכיל אותיות תנועה=,u//&& !/[u]/.test(p)
 
-    // ה) אורך הסיסמה צריך להיות בין range 8 to 2
-    return /[A-Za-z]/.test(p) && !/[u]/.test(p) && /^[@#a][A-Za-z0-9]{1,7}$/.test(p);
-  }
+  // ד) זה צריך להיות אלפאנומרי. /[A-Za-z]/.test(p)  &&
+
+  // ה) אורך הסיסמה צריך להיות בין range 8 to 2
+  return /^[@#a][A-Za-z0-9]{1,8}$/.test(p);
+}
   //תקינות עברית
   function isValidateHebrew(name) {
     //hebrew+' tav...
@@ -652,7 +662,7 @@ export default withRouter(connect(mapStateToProps)(function UpdateAccount(props)
                   </Grid>
 
 
-                  <Grid item xs={12} sm={6} onChange={(e) => { handleTyping(e, "Password") }}>
+                  <Grid item xs={12} sm={6}  onChange={(e) => { functionConfirmation(e) }} >
                     <TextField
                       required
                       id="country"
@@ -681,7 +691,7 @@ export default withRouter(connect(mapStateToProps)(function UpdateAccount(props)
                     />
                   </Grid>
 
-                  <Grid item xs={12} sm={6} onChange={(e) => { functionConfirmation(e) }} >
+                  <Grid item xs={12} sm={6} onChange={(e) => { handleTyping(e, "Password") }}>
                     <TextField
                       required
                       inputProps={{

@@ -17,18 +17,7 @@ import ErrorMessage from './ErrorMessage';
 import Alert from '@material-ui/lab/Alert';
 import Collapse from '@material-ui/core/Collapse';
 import { Redirect, Link } from "react-router-dom";
-// import useStyles from './LoginStyles.js';
-// import   setErrorMessageE from './LoginStyles.js';
-// import  setColorE from './LoginStyles.js';
-// import  colorP from './LoginStyles.js';
-// import    setColorP from './LoginStyles.js';
-// import errorMessageE from './LoginStyles.js'
-// import   errorMessageP from './LoginStyles.js';
-// import   setErrorMessageP from './LoginStyles.js';
-// import   errorMsg from './LoginStyles.js';
-// //import  { setErrorMessageE,setColorE,colorP, setColorP,errorMessageE,errorMessageP, setErrorMessageP,errorMsg, setErrorMsg} from './LoginStyles.js';
-// import  setErrorMsg from './LoginStyles.js';
-// import  classes from './LoginStyles.js';
+
 function mapStateToProps(state) {
   return {
     userId: state.UserId,
@@ -226,12 +215,12 @@ export default withRouter(connect(mapStateToProps)(function SignInSide(props) {
 
     // ב) זה צריך להתחיל עם אופי מיוחד או @#a
 
-    // ג) הוא אינו צריך להכיל אותיות תנועה=,u
+    // ג) הוא אינו צריך להכיל אותיות תנועה=,u//&& !/[u]/.test(p)
 
-    // ד) זה צריך להיות אלפאנומרי.
+    // ד) זה צריך להיות אלפאנומרי. /[A-Za-z]/.test(p)  &&
 
     // ה) אורך הסיסמה צריך להיות בין range 8 to 2
-    return /[A-Za-z]/.test(p) && !/[u]/.test(p) && /^[@#a][A-Za-z0-9]{1,7}$/.test(p);
+    return /^[@#a][A-Za-z0-9]{1,8}$/.test(p);
   }
 
   const [errorMessage, setErrorMessage] = useState("שגיאה");

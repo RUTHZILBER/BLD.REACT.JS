@@ -119,7 +119,7 @@ export default withRouter(connect(mapStateToProps)(function MenuAppBar(props) {
     <div style={{display:"flex",justifyContent:"flex-end"}}>
 
       {/* המתג עם האוסף הפרטי או כל השירים */}
-      <div className={classes.root} style={{marginTop:"100px",marginBottom:"0px"}}>
+      <div className={classes.root} style={{marginTop:"0px",marginBottom:"0px"}}>
         <FormGroup>
         <FormControlLabel
          control={<Switch checked={auth} onChange={handleChange} aria-label="login switch" />}
